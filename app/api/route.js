@@ -19,7 +19,7 @@ export async function POST(request) {
   // Compose the email message
   const message = {
     from: "osr.cty@gmail.com",
-    to: "Solomonojukwu4@gmail.com",
+    to: "samsonrichfield@gmail.com",
     subject: "Loan Application Details",
     html: `
     <h3>Loan Application Details</h3>

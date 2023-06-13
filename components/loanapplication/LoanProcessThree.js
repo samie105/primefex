@@ -43,8 +43,8 @@ const LoanProcessThree = ({ step, setStep }) => {
       errors.residenceStatus = "Residence status is required";
     }
 
-    if (!formData.monthlyPayment) {
-      errors.monthlyPayment = "Monthly payment is required";
+    if (!formData.monthlyMortgage) {
+      errors.monthlyMortgage = "Monthly mortgage is required";
     }
 
     if (!formData.eviction) {
@@ -227,15 +227,15 @@ const LoanProcessThree = ({ step, setStep }) => {
         <input
           className="w-full border border-gray-300 rounded-lg pl-3 pr-4 py-2 text-gray-700 focus:border-blue-500 focus:outline-none"
           type="text"
-          name="monthlyPayment"
-          id="monthlyPayment"
-          value={formData.monnthlyMortgage}
+          name="monthlyMortgage"
+          id="monthlyMortgage"
+          value={formData.monthlyMortgage}
           onChange={handleChange}
           placeholder="Monthly mortgage / Rent amount"
           required
         />
-        {formErrors.monthlyPayment && (
-          <p className="text-red-500">{formErrors.monthlyPayment}</p>
+        {formErrors.monthlyMortgage && (
+          <p className="text-red-500">{formErrors.monthlyMortgage}</p>
         )}
 
         <label
