@@ -20,7 +20,7 @@ function Navbar() {
         }
       `}</style>
       <header
-        className={`holder transition bg-red-100 overflow-hidden items-center ${
+        className={`holder transition-all bg-red-100 overflow-hidden items-center ${
           isMobileMenuOpen ? "h-auto" : ""
         }`}
       >
@@ -79,11 +79,21 @@ function Navbar() {
           }`}
         >
           <ul className="flex flex-col cursor-pointer items-center">
-            <li className="py-1 active font-extrabold">Home</li>
-            <li className="py-1">About Us</li>
-            <li className="py-1">How it Works</li>
-            <li className="py-1">FAQ</li>
-            <li className="py-1">Contact Us</li>
+            <NavLink href="/" exact>
+              <li className="py-1 ">Home</li>
+            </NavLink>
+            <NavLink href="/about-us">
+              <li className="py-1">About Us</li>
+            </NavLink>
+            <NavLink href="/Loan-Process">
+              <li className="py-1">How it Works</li>
+            </NavLink>
+            <NavLink href="/FAQ">
+              <li className="py-1">FAQ</li>
+            </NavLink>
+            <NavLink href="/Contact-Us">
+              <li className="py-1">Contact Us</li>
+            </NavLink>
             <li className="my-10">
               <div className="catchysha">
                 <button className="rounded-full bg-blue-700 px-4 py-2 font-semibold text-sm">

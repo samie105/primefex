@@ -15,7 +15,7 @@ export const FormDataProvider = ({ children }) => {
       storedFormData || {
         firstName: "",
         lastName: "",
-        loanAmount: 0,
+        loanAmount: 100,
         loanDuration: 0,
         monthlyMortgage: "",
         interest: 0,
