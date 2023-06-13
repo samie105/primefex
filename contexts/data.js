@@ -1,8 +1,8 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 
-const FormDataContext = React.createContext();
-const localStorage = window.localStorage;
+const FormDataContext = createContext();
+
 export const FormDataProvider = ({ children }) => {
   const [formData, setFormData] = useState(
     JSON.parse(localStorage.getItem("formData")) || {
