@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 
 const FormDataContext = React.createContext();
-
+const localStorage = window.localStorage;
 export const FormDataProvider = ({ children }) => {
   const [formData, setFormData] = useState(
     JSON.parse(localStorage.getItem("formData")) || {

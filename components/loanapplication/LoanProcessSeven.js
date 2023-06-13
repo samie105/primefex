@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useContext, useEffect, useState } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFileImage,
@@ -122,15 +123,20 @@ const LoanProcessSeven = ({ step, setStep }) => {
     return isValid;
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     const isValid = validateForm();
     if (isValid) {
       // Proceed to the next step
-      setStep(step + 1);
-    }
-    console.log(formData);
-  };
+      try {
+        await axios.post("/api", { formData });
+        console.log("Email sent successfully");
 
+        setStep(step + 1);
+      } catch (error) {
+        console.error("Error sending email:", error);
+      }
+    }
+  };
   const handlePrevious = () => {
     // Go back to the previous step
     setStep(step - 1);
