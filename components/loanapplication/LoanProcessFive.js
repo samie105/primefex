@@ -244,13 +244,13 @@ const LoanProcessFive = ({ step, setStep }) => {
 
           <div className="flex justify-between mt-8">
             <button
-              className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg"
+              className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg text-sm font-semibold"
               onClick={handlePrevious}
             >
               Previous
             </button>
             <button
-              className="px-4 py-2 bg-blue-500 text-white rounded-lg"
+              className="px-4 py-2 bg-blue-500 text-white rounded-lg text-sm font-semibold"
               type="submit"
             >
               Next

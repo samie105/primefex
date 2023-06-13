@@ -70,15 +70,13 @@ const LoanProcessSeven = ({ step, setStep }) => {
       // Handle the error
     }
   };
+
   const validateForm = () => {
     let isValid = true;
     const errors = {};
 
     if (!formData.licenseNumber) {
       errors.licenseNumber = "Driver's license number is required";
-      isValid = false;
-    } else if (formData.licenseNumber.length !== 9) {
-      errors.licenseNumber = "Please enter a valid driver's license number";
       isValid = false;
     }
 
@@ -138,6 +136,7 @@ const LoanProcessSeven = ({ step, setStep }) => {
       }
     }
   };
+
   const handlePrevious = () => {
     // Go back to the previous step
     setStep(step - 1);
@@ -166,11 +165,13 @@ const LoanProcessSeven = ({ step, setStep }) => {
               required
             >
               <option value="">Select</option>
-              <option value="excellent">Excellent Credit (720-850)</option>
-              <option value="good">Good Credit (690-719)</option>
-              <option value="fair">Fair Credit (630-689)</option>
-              <option value="bad">Bad Credit (300-639)</option>
-              <option value="notSure">Not Sure</option>
+              <option value="Excellent (720-850)">
+                Excellent Credit (720-850)
+              </option>
+              <option value="Good (690-719)">Good Credit (690-719)</option>
+              <option value="Fair (630-689)">Fair Credit (630-689)</option>
+              <option value="Bad (300-639)">Bad Credit (300-639)</option>
+              <option value="Not Sure">Not Sure</option>
             </select>
           </div>
           {errors.creditScore && (
@@ -313,13 +314,13 @@ const LoanProcessSeven = ({ step, setStep }) => {
 
         <div className="flex justify-between mt-8">
           <button
-            className="px-6 py-2 bg-blue-500 text-white rounded-lg "
+            className="px-6 py-2 bg-blue-500 text-white rounded-lg text-sm font-semibold"
             onClick={handlePrevious}
           >
             Previous
           </button>
           <button
-            className="px-6 py-2 bg-blue-500 text-white rounded-lg"
+            className="px-6 py-2 bg-blue-500 text-white rounded-lg font-semibold text-sm"
             onClick={handleNext}
           >
             Submit

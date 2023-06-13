@@ -168,7 +168,7 @@ const LoanProcessOne = ({ step, setStep }) => {
                 width={500}
                 height={500}
                 alt="Successful loan application merry moment"
-                className="w-24 h-10"
+                className="w-full h-full lg:w-24 md:w-24 sm:w-24"
               />
             </div>
           </div>
@@ -219,14 +219,14 @@ const LoanProcessOne = ({ step, setStep }) => {
         </div>
         <div className="flex justify-between mt-6">
           <button
-            className="px-4 py-2 rounded-2xl text-sm disabled:text-gray-800 text-white bg-blue-500 font-semibold disabled:bg-gray-200"
+            className="px-4 py-2 rounded-md text-sm disabled:text-gray-800 text-white bg-blue-500 font-semibold disabled:bg-gray-200"
             onClick={handlePrevious}
             disabled={step === 1} // Disable the previous button if it's the first step
           >
             Previous
           </button>
           <button
-            className={`px-4 py-2 rounded-2xl text-sm text-white font-semibold ${
+            className={`px-4 py-2 rounded-md text-sm text-white font-semibold ${
               isFormValid ? "bg-blue-500" : "bg-gray-300 cursor-not-allowed"
             }`}
             onClick={handleSubmit}

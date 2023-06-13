@@ -42,19 +42,19 @@ const PersonalInformationForm = () => {
         <h2 className="text-center text-4xl font-bold mb-4 mt-8">
           SECURE APPLICATION
         </h2>
-        <p className="text-center mb-6 md:px-32 lg:px-48">
+        <p className="text-center mb-6 text-sm lg:text-base md:text-base md:px-32 lg:px-48">
           Your data is transmitted securely using 128-bit encryption and will be
           used in accordance with our Privacy Policy and Terms of Use.
         </p>
       </div>
       <div className="flex justify-center h-auto w-full">
         {step <= 7 && (
-          <div className="mb-6 lg:w-3/4 md:3/4  px-10">
-            <div className="bg-white rounded-xl relative shadow-md px-8 py-8 overflow-hidden">
-              <div className="flex justify-between items-center px-4 w-full left-3 top-5">
-                <div className="progress-bar-holder mr-5 w-full h-1 rounded-tl-none rounded-bl-none b rounded-full bg-gray-200">
+          <div className="mb-6 lg:w-3/4 md:3/4  md:px-5 px-2 lg:px-10">
+            <div className="bg-white lg:rounded-xl relative md:shadow-md lg:shadow-md lg:px-8 md:px-6 py-8 overflow-hidden">
+              <div className="flex justify-between items-center rounded-full px-4 w-full left-3 top-5">
+                <div className="progress-bar-holder mr-5 w-full h-2 b rounded-full bg-gray-200">
                   <div
-                    className={`progress-bar-width h-full bg-fuchsia-500`}
+                    className={`progress-bar-width h-full rounded-full bg-blue-500 transition-all`}
                     style={{ width: `${progressPercentage}%` }}
                   ></div>
                 </div>

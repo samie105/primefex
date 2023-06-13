@@ -19,10 +19,6 @@ const LoanProcessThree = ({ step, setStep }) => {
       errors.address = "Address is required";
     }
 
-    if (!formData.suiteApt) {
-      errors.suiteApt = "Suite / Apt # is required";
-    }
-
     if (!formData.city) {
       errors.city = "City is required";
     }
@@ -99,7 +95,7 @@ const LoanProcessThree = ({ step, setStep }) => {
           className="block text-gray-700 font-semibold mb-2 mt-7"
           htmlFor="suiteApt"
         >
-          Suite / Apt #
+          Suite / Apt # (Optional)
         </label>
         <input
           className="w-full border border-gray-300 rounded-lg pl-3 pr-4 py-2 text-gray-700 focus:border-blue-500 focus:outline-none"
@@ -111,9 +107,6 @@ const LoanProcessThree = ({ step, setStep }) => {
           placeholder="Suite / Apt #"
           required
         />
-        {formErrors.suiteApt && (
-          <p className="text-red-500">{formErrors.suiteApt}</p>
-        )}
 
         <label
           className="block text-gray-700 font-semibold mb-2 mt-7"
@@ -263,14 +256,14 @@ const LoanProcessThree = ({ step, setStep }) => {
         <div className="flex justify-between mt-7">
           {step > 1 && (
             <button
-              className="px-4 py-2 bg-blue-500 text-white rounded-lg focus:outline-none"
+              className="px-4 py-2 bg-blue-500 text-white text-sm font-semibold rounded-lg focus:outline-none"
               onClick={handlePrevious}
             >
               Previous
             </button>
           )}
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg focus:outline-none"
+            className="px-4 py-2 bg-blue-500 text-white font-semibold text-sm rounded-lg focus:outline-none"
             onClick={handleNext}
           >
             Next

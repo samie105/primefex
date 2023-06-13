@@ -148,14 +148,14 @@ const LoanProcessTwo = ({ step, setStep }) => {
         <div className="flex justify-between mt-7">
           {step > 1 && (
             <button
-              className="px-4 py-2 bg-blue-500 text-white rounded-lg focus:outline-none"
+              className="px-4 py-2 bg-blue-500 text-white text-sm font-semibold rounded-lg focus:outline-none"
               onClick={handlePrevious}
             >
               Previous
             </button>
           )}
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg focus:outline-none disabled:bg-gray-300 disabled:text-gray-800 disabled:cursor-not-allowed"
+            className="px-4 py-2 bg-blue-500 text-white text-sm font-semibold rounded-lg focus:outline-none disabled:bg-gray-300 disabled:text-gray-800 disabled:cursor-not-allowed"
             onClick={handleNext}
             disabled={!isFormValid}
           >

@@ -238,14 +238,14 @@ const LoanProcessFour = ({ step, setStep }) => {
 
           <div className=" w-full flex justify-between">
             <button
-              className="px-4 py-2 bg-blue-500 text-white rounded-lg focus:outline-none mt-8"
+              className="px-4 py-2 bg-blue-500 text-white rounded text-sm font-semibold focus:outline-none mt-8"
               onClick={handlePrevious}
             >
               Previous
             </button>
 
             <button
-              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-8"
+              className="bg-blue-500 hover:bg-blue-600 text-sm font-semibold text-white  py-2 px-4 rounded mt-8"
               type="submit"
             >
               Next
