@@ -21,7 +21,7 @@ function Navbar() {
       `}</style>
       <header
         className={`holder transition-all bg-red-100 overflow-hidden items-center ${
-          isMobileMenuOpen ? "h-auto" : ""
+          isMobileMenuOpen ? "h-auto transition-all" : "transition"
         }`}
       >
         <div className="flex items-center px-3 py-5 ">
@@ -74,33 +74,37 @@ function Navbar() {
           </nav>
         </div>
         <div
-          className={`mobile-menus lg:hidden xl:hidden md:hidden w-full justify-center items-center ${
+          className={`mobile-menus transition-all lg:hidden xl:hidden md:hidden w-full justify-center items-center ${
             isMobileMenuOpen ? "" : "hidden"
           }`}
         >
           <ul className="flex flex-col cursor-pointer items-center">
             <NavLink href="/" exact>
-              <li className="py-1 ">Home</li>
+              <li className="font-semibold py-3  w-full my-2 px-10">Home</li>
             </NavLink>
             <NavLink href="/about-us">
-              <li className="py-1">About Us</li>
+              <li className="font-semibold py-3  w-full my-2 px-10">
+                About Us
+              </li>
             </NavLink>
             <NavLink href="/Loan-Process">
-              <li className="py-1">How it Works</li>
+              <li className="font-semibold py-3  w-full my-2 px-10">
+                How it Works
+              </li>
             </NavLink>
             <NavLink href="/FAQ">
-              <li className="py-1">FAQ</li>
+              <li className="font-semibold py-3  w-full my-2 px-10">FAQ</li>
             </NavLink>
             <NavLink href="/Contact-Us">
-              <li className="py-1">Contact Us</li>
+              <li className="font-semibold py-3 w-full my-2 px-10">
+                Contact Us
+              </li>
             </NavLink>
-            <li className="my-10">
-              <div className="catchysha">
-                <button className="rounded-full bg-blue-700 px-4 py-2 font-semibold text-sm">
-                  Get Started
-                </button>
-              </div>
-            </li>
+            <NavLink href="/">
+              <li className="my-5 font-semibold py-3  w-full  px-10">
+                Get Started
+              </li>
+            </NavLink>
           </ul>
         </div>
       </header>

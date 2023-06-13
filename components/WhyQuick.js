@@ -17,18 +17,15 @@ export default function WhyQuick() {
             />
           </div>
         </div>
-        <div className="info-holder flex w-full h-full items-center justify-center">
-          <div className="cont h-full">
-            <div className="text-center ">
-              <h3 className="text-lg md:text-lg lg:text-xl font-semibold px-1 py-4">
-                What You Should Know About:
-              </h3>
-              <h3 className="text-lg md:text-xl lg:text-3xl font-bold">
-                MyQuickLoan
+        <div className="info-holder flex w-full h-full items-center justify-center py-6 md:px-16">
+          <div className="cont h-full lg:py-0 py-8">
+            <div className="">
+              <h3 className=" md:text-xl lg:text-3xl font-bold text-base text-left lg:text-center lg:pl-0 pl-7">
+                Why MyQuickLoan
               </h3>
             </div>
             <div className="textbar">
-              <p className="font-semibold text-base lg:text-lg text-gray-800 mt-7  px-20 py-8">
+              <p className="font-semibold  lg:text-lg text-gray-800 mt-7 text-sm md:text-base lg:px-20 px-7 lg:py-8 pb-8">
                 MyQuickLoan is a better way to borrow extra money. It’s not a
                 payday loan. It’s an installment loan, which means you pay down
                 the balance with each on-time payment. Borrow from $300 to $1500

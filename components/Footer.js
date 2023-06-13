@@ -59,13 +59,11 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <div className="px-8 quickLinks w-full items-center flex-wrap hidden md:flex lg:flex ">
-            <div className=" px-2">How it Works</div>
+          <div className="px-8 quickLinks w-full font-semibold capitalize items-center flex-wrap hidden md:flex lg:flex ">
+            <div className=" px-2">Home</div>
             <div className=" px-2">About Us</div>
-            <div className=" px-2">Why Spotloan</div>
-            <div className=" px-2">Financial Education</div>
+            <div className=" px-2">How it Works</div>
             <div className=" px-2">FAQ</div>
-            <div className=" px-2">Careers</div>
             <div className="px-2">Contact Us</div>
           </div>
 

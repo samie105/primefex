@@ -19,8 +19,8 @@ export default function Whyloan() {
               MyQuickLoan can help with expenses like
             </h2>
           </div>
-          <div className="header-rule flex justify-center py-2">
-            <div className="h-0.5 w-72 rounded-full bg-slate-900"></div>
+          <div className="header-rule flex justify-center py-2 opacity-70">
+            <div className="h-0.5 lg:w-72 md:w-52 sm:w-44 w-24 rounded-full bg-slate-900"></div>
           </div>
         </div>
 
@@ -55,15 +55,7 @@ export default function Whyloan() {
               Home Keepings
             </p>
           </div>
-          <div className="help-card flex flex-col items-center py-5 px-6  rounded-lg shadow-md opacity-70 m-1">
-            <FontAwesomeIcon
-              icon={faGraduationCap}
-              className="text-lg mb-3 h-9 w-9"
-            />
-            <p className="text-center font-semibold text-xs sm:text-sm md:text-sm lg:text-base">
-              Education Expenses
-            </p>
-          </div>
+
           <div className="help-card flex flex-col items-center py-5 px-6  rounded-lg shadow-md opacity-70 m-1">
             <FontAwesomeIcon icon={faPlane} className="text-lg mb-3 h-9 w-9" />
             <p className="text-center font-semibold text-xs sm:text-sm md:text-sm lg:text-base">
@@ -76,7 +68,7 @@ export default function Whyloan() {
               className="text-lg mb-3 h-9 w-9"
             />
             <p className="text-center font-semibold text-xs sm:text-sm md:text-sm lg:text-base">
-              Credit Card Bills
+              Credit Card
             </p>
           </div>
           {/* Add more help cards here */}
