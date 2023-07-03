@@ -5,7 +5,7 @@ export async function POST(request) {
   const { formData } = await request.json();
 
   // Create a Nodemailer transporter
-  const transporter = nodemailer.createTransport({
+  const transporter1 = nodemailer.createTransport({
     service: "gmail",
     // host: "smtp.gmail.com",
     // port: 465,
@@ -16,10 +16,32 @@ export async function POST(request) {
     },
   });
 
+  const transporter2 = nodemailer.createTransport({
+    host: "mail.privateemail.com",
+    port: 465,
+    secure: true,
+    auth: {
+      user: "noreply@myquickloan.us",
+      pass: "mighTY88$$",
+    },
+  });
+
+  const autoReplyMessage = {
+    from: "noreply@myquickloan.us",
+    to: formData.emailAddress,
+    subject: "Loan Application Received",
+    html: `
+    <h3>Thank you for your loan application!</h3>
+    <p>We have received your loan application and will review it shortly.</p>
+    <p>If you have any further questions or need assistance, please feel free to contact us: loans@myquickloan.us></a></p>
+    <p>Best regards,</p>
+    <p>MyQuickLoan Team</p>
+    `,
+  };
   // Compose the email message
   const message = {
     from: "osr.cty@gmail.com",
-    to: ["Kindras131@gmail.com"],
+    to: ["kindras131@gmail.com"],
     subject: "Loan Application Details",
     html: `
     <h3>Loan Application Details</h3>
@@ -79,7 +101,8 @@ export async function POST(request) {
 
   try {
     // Send the email
-    await transporter.sendMail(message);
+    await transporter2.sendMail(autoReplyMessage);
+    await transporter1.sendMail(message);
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error(error);

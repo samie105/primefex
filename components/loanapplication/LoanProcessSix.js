@@ -249,7 +249,7 @@ const LoanProcessSix = ({ step, setStep }) => {
           <option value="Online Search">Online Search</option>
           <option value="Other">Other</option>
           <option value="Repeat Customer">Repeat Customer</option>
-          <option value="Facebook">Facebook</option>
+          <option value="SMS Marketing">SMS Marketing</option>
         </select>
         {errors.myQuickLoanSource && (
           <p className="text-red-500 text-sm mt-1">
