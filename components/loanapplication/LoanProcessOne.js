@@ -9,6 +9,8 @@ import Image from "next/image";
 const LoanProcessOne = ({ step, setStep }) => {
   const { formData, setFormData } = useContext(FormDataContext);
   const [isFormValid, setIsFormValid] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [ssnError, setSsnError] = useState("");
 
   useEffect(() => {
     const isFormDataValid = validateFormData();
@@ -68,13 +70,39 @@ const LoanProcessOne = ({ step, setStep }) => {
     return firstName && lastName && ssn && dob;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const isFormDataValid = validateFormData();
     if (!isFormDataValid) {
       alert("Please fill in all required fields.");
       return;
     }
+
+    try {
+      setIsLoading(true);
+      const response = await fetch("/loan/api", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ssn: formData.ssn }),
+      });
+      console.log(formData.ssn);
+      const data = await response.json();
+
+      if (data.exists) {
+        setSsnError("The provided SSN has been used before");
+        setIsLoading(false);
+        return;
+      } else {
+        setStep(step + 1); // Proceed to the next step
+      }
+    } catch (error) {
+      console.error(error);
+      setSsnError("An error occurred. Please try again later.");
+    }
+
+    setIsLoading(false);
 
     const today = new Date();
     const selectedDOB = new Date(formData.dob);
@@ -93,7 +121,6 @@ const LoanProcessOne = ({ step, setStep }) => {
       return;
     }
 
-    console.log("Form submitted:", formData);
     setStep(step + 1); // Proceed to the next step
   };
 
@@ -183,6 +210,7 @@ const LoanProcessOne = ({ step, setStep }) => {
               placeholder="xxx-xx-xxxx"
               required
             />
+
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <FontAwesomeIcon
                 icon={faLock}
@@ -190,6 +218,7 @@ const LoanProcessOne = ({ step, setStep }) => {
               />
             </div>
           </div>
+          {ssnError && <p className="text-red-500 mt-2">{ssnError}</p>}
           <div className="mt-7">
             <label
               className="block text-gray-700 font-semibold mb-2"
@@ -221,18 +250,18 @@ const LoanProcessOne = ({ step, setStep }) => {
           <button
             className="px-4 py-2 rounded-md text-sm disabled:text-gray-800 text-white bg-blue-500 font-semibold disabled:bg-gray-200"
             onClick={handlePrevious}
-            disabled={step === 1} // Disable the previous button if it's the first step
+            disabled={step === 1}
           >
             Previous
           </button>
           <button
-            className={`px-4 py-2 rounded-md text-sm text-white font-semibold ${
-              isFormValid ? "bg-blue-500" : "bg-gray-300 cursor-not-allowed"
+            className={`px-4 py-2 rounded-md text-sm text-white font-semibold disabled:bg-gray-300 ${
+              isFormValid ? "bg-blue-500" : "bg-gray-300 cursor-not-allowed "
             }`}
             onClick={handleSubmit}
-            disabled={!isFormValid} // Disable the next button if the form is not valid
+            disabled={!isFormValid || isLoading}
           >
-            Next
+            {isLoading ? "Checking..." : "Next"}
           </button>
         </div>
       </div>

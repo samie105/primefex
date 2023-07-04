@@ -99,8 +99,11 @@ const ContactForm = () => {
                 icon={faEnvelope}
                 className="mr-2 text-blue-500"
               />
-              <a href="mailto:help@spotloan.com" className="text-blue-500 px-3">
-                help@myquickloan.com
+              <a
+                href="mailto:loans@spotloan.com"
+                className="text-blue-500 px-3"
+              >
+                loans@myquickloan.com
               </a>
             </div>
           </div>

@@ -8,6 +8,7 @@ const LoanProcessTwo = ({ step, setStep }) => {
 
   const [errors, setErrors] = useState({});
   const [isFormValid, setIsFormValid] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const isFormDataValid = validateForm();
@@ -41,6 +42,7 @@ const LoanProcessTwo = ({ step, setStep }) => {
       [name]: limitedPhoneNumber,
     }));
   };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
@@ -49,12 +51,35 @@ const LoanProcessTwo = ({ step, setStep }) => {
     }));
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     // Validate the form fields
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length === 0) {
       setErrors({});
-      setStep((prevStep) => prevStep + 1);
+      setIsLoading(true); // Set isLoading to true when checking existence
+
+      const emailExists = await checkIfEmailExists(formData.emailAddress);
+      const phoneExists = await checkIfPhoneExists(formData.primaryPhoneNumber);
+
+      setIsLoading(false);
+
+      if (emailExists) {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          emailAddress: "Email address has already been used",
+        }));
+      }
+
+      if (phoneExists) {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          primaryPhoneNumber: "Phone number has already been used",
+        }));
+      }
+
+      if (!emailExists && !phoneExists) {
+        setStep((prevStep) => prevStep + 1);
+      }
     } else {
       setErrors(validationErrors);
     }
@@ -81,6 +106,54 @@ const LoanProcessTwo = ({ step, setStep }) => {
     }
 
     return errors;
+  };
+
+  const checkIfEmailExists = async (emailAddress) => {
+    try {
+      const response = await fetch("/loan/api", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          emailAddress,
+        }),
+      });
+      console.log(response);
+      if (!response.ok) {
+        throw new Error("Error checking email existence.");
+      }
+
+      const data = await response.json();
+      return data.exists;
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  };
+
+  const checkIfPhoneExists = async (phoneNumber) => {
+    try {
+      const response = await fetch("/loan/api", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          phoneNumber,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error checking phone existence.");
+      }
+
+      const data = await response.json();
+      return data.exists;
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
   };
 
   return (
@@ -157,9 +230,10 @@ const LoanProcessTwo = ({ step, setStep }) => {
           <button
             className="px-4 py-2 bg-blue-500 text-white text-sm font-semibold rounded-lg focus:outline-none disabled:bg-gray-300 disabled:text-gray-800 disabled:cursor-not-allowed"
             onClick={handleNext}
-            disabled={!isFormValid}
+            disabled={!isFormValid || isLoading} // Disable the button when loading
           >
-            Next
+            {isLoading ? "Validating..." : "Next"}{" "}
+            {/* Display "Loading..." when isLoading is true */}
           </button>
         </div>
       </div>

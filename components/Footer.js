@@ -20,9 +20,7 @@ export default function Footer() {
               </div>
               <div className="email-contact flex items-center mb-2 py-2 px-1">
                 <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
-                <span className="text-sm font-bold">
-                  Contact@myquickloan.com
-                </span>
+                <span className="text-sm font-bold">loans@myquickloan.com</span>
               </div>
               <div className="address-contact flex items-center mb-2 py-2 px-1">
                 <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />
@@ -76,8 +74,8 @@ export default function Footer() {
               better for you, including borrowing from a friend or relative,
               using a credit card cash advance, taking out a personal loan, or
               using a home equity loan or savings. Contact our customer service
-              team by email at contact@myquickloan.com or by phone at
-              888-681-6811 to discuss if a MyQuickLoans is right for you.
+              team by email at loans@myquickloan.com or by phone at 888-681-6811
+              to discuss if a MyQuickLoans is right for you.
             </p>
           </div>
         </div>
