@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock, faCalendar } from "@fortawesome/free-solid-svg-icons";
 import FormDataContext from "@/contexts/data";
 import Image from "next/image";
+import axios from "axios";
 
 const LoanProcessOne = ({ step, setStep }) => {
   const { formData, setFormData } = useContext(FormDataContext);
@@ -80,17 +81,11 @@ const LoanProcessOne = ({ step, setStep }) => {
 
     try {
       setIsLoading(true);
-      const response = await fetch("/loan/api", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ ssn: formData.ssn }),
-      });
-      console.log(formData.ssn);
-      const data = await response.json();
+      const response = await axios.post("/loan/api", { ssn: formData.ssn });
+      const data = response.data;
+      console.log(data);
 
-      if (data.exists) {
+      if (data.ssn) {
         setSsnError("The provided SSN has been used before");
         setIsLoading(false);
         return;
@@ -101,6 +96,8 @@ const LoanProcessOne = ({ step, setStep }) => {
       console.error(error);
       setSsnError("An error occurred. Please try again later.");
     }
+
+    setIsLoading(false);
 
     setIsLoading(false);
 

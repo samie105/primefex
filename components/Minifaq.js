@@ -13,7 +13,7 @@ const faqData = [
   {
     question: "How long does the application process take?",
     answer:
-      "The application process is fast as it is done completely online. Most people complete the process in about 10 minutes.If you accepted your loan terms on a Monday through Friday, before 11:30 a.m. CT, MyQuickLoan will transfer the money to your bank by no later than the end of the same business day. If you accepted your loan terms on a Monday through Thursday between 11:30 a.m. CT and 8 p.m. CT, Spotloan will transfer your funds to your bank overnight. If you accepted your loan terms on a Friday after 11:30 a.m. CT through anytime on Sunday, MyQuickLoan will transfer your money over the weekend and it will arrive at your bank by the end of the next business day.",
+      "The application process is fast as it is done completely online. Most people complete the process in about 10 minutes.If you accepted your loan terms on a Monday through Friday, before 11:30 a.m. CT, MyQuickLoan will transfer the money to your bank by no later than the end of the same business day. If you accepted your loan terms on a Monday through Thursday between 11:30 a.m. CT and 8 p.m. CT, MyQuickLoan will transfer your funds to your bank overnight. If you accepted your loan terms on a Friday after 11:30 a.m. CT through anytime on Sunday, MyQuickLoan will transfer your money over the weekend and it will arrive at your bank by the end of the next business day.",
   },
   {
     question: "What are the eligibility criteria for a loan?",

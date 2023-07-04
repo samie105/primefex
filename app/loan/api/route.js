@@ -1,28 +1,41 @@
-// app/api/route.js
-
 import { NextResponse } from "next/server";
 import FormDataModel from "../mongooseConfig";
 
 export async function POST(request) {
-  try {
-    // Check if email or SSN already exists
-    const existingUser = await FormDataModel.exists({
-      $or: [
-        { emailAddress: request.body.emailAddress },
-        { ssn: request.body.ssn },
-        { phoneNumber: request.body.primaryPhoneNumber },
-      ],
-    });
+  const formData = await request.json();
+  console.log(formData);
 
-    if (existingUser) {
-      // User already exists, handle the case accordingly
-      return NextResponse.json({ exists: true }, { status: 200 });
+  try {
+    // Convert email address to lowercase
+
+    // Convert fields to strings
+    const ssn = String(formData.ssn);
+    const emailAddress = String(formData.emailAddress);
+    const phoneNumber = String(formData.phoneNumber);
+
+    // Check if email, SSN, or phone number already exist
+    const existingData = {
+      email: Boolean(
+        await FormDataModel.findOne({ emailAddress: emailAddress })
+      ),
+      ssn: Boolean(await FormDataModel.findOne({ ssn: ssn })),
+      phoneNumber: Boolean(
+        await FormDataModel.findOne({
+          phoneNumber: phoneNumber,
+        })
+      ),
+    };
+
+    if (!existingData.email || !existingData.ssn || !existingData.phoneNumber) {
+      // Any of the fields doesn't exist and all the fields are not empty or undefined, create a new entry in the database
+      await FormDataModel.create({
+        ssn: ssn,
+        emailAddress: emailAddress,
+        phoneNumber: phoneNumber,
+      });
     }
 
-    // Save the form data to the database
-    const savedData = await FormDataModel.create(request.body);
-
-    return NextResponse.json(savedData, { status: 200 });
+    return NextResponse.json(existingData, { status: 200 });
   } catch (error) {
     console.error(error);
     return NextResponse.json(

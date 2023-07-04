@@ -58,7 +58,9 @@ const LoanProcessTwo = ({ step, setStep }) => {
       setErrors({});
       setIsLoading(true); // Set isLoading to true when checking existence
 
-      const emailExists = await checkIfEmailExists(formData.emailAddress);
+      const emailExists = await checkIfEmailExists(
+        formData.emailAddress.toLowerCase()
+      );
       const phoneExists = await checkIfPhoneExists(formData.primaryPhoneNumber);
 
       setIsLoading(false);
@@ -125,7 +127,8 @@ const LoanProcessTwo = ({ step, setStep }) => {
       }
 
       const data = await response.json();
-      return data.exists;
+      console.log(data);
+      return data.email;
     } catch (error) {
       console.error(error);
       throw error;
@@ -149,7 +152,7 @@ const LoanProcessTwo = ({ step, setStep }) => {
       }
 
       const data = await response.json();
-      return data.exists;
+      return data.phoneNumber;
     } catch (error) {
       console.error(error);
       throw error;

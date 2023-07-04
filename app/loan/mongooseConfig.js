@@ -12,7 +12,7 @@ mongoose.connect(mongoURI, {
 const formDataSchema = new mongoose.Schema({
   emailAddress: String,
   ssn: String,
-  primaryPhoneNumber: String,
+  phoneNumber: String,
   // ... Add more fields as needed
 });
 
