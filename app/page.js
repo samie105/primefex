@@ -14,8 +14,8 @@ import { FormDataProvider } from "@/contexts/data";
 export default function Home() {
   return (
     <>
-      <div className="bg-red-300">
-        <div className="flex justify-between items-center px-6 py-3 h-auto sm:px-20 md:px-32 lg:px-48">
+      <div className="bg-slate-600 text-white ">
+        <div className="opacity-80 flex justify-between items-center px-6 py-3 h-auto sm:px-20 md:px-32 lg:px-48">
           <div className="step flex items-center">
             <FontAwesomeIcon icon={faUser} className="icon h-3 w-3 " />
             <p className="px-1 font-bold text-xs lg:text-sm md:text-sm sm:text-sm">

@@ -4,7 +4,7 @@ import React from "react";
 export default function WhyQuick() {
   return (
     <>
-      <div className="w-full bg-green-200 h-full flex items-center">
+      <div className="w-full bg-slate-800 text-white h-full flex items-center">
         <div className="image-holder w-full  relative hidden lg:flex lg:items-center lg:justify-center">
           <div className="overlay absolute opacity-80 w-full h-full bg-black"></div>
           <div className="w-full">
@@ -25,7 +25,7 @@ export default function WhyQuick() {
               </h3>
             </div>
             <div className="textbar">
-              <p className="font-semibold  lg:text-lg text-gray-800 mt-7 text-sm md:text-base lg:px-20 px-7 lg:py-8 pb-8">
+              <p className="font-semibold  lg:text-lg text-white opacity-90 mt-7 text-sm md:text-base lg:px-20 px-7 lg:py-8 pb-8">
                 MyQuickLoan is a better way to borrow extra money. It’s not a
                 payday loan. It’s an installment loan, which means you pay down
                 the balance with each on-time payment. Borrow from $300 to $1500

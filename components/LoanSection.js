@@ -76,10 +76,10 @@ export default function LoanSection() {
   };
 
   return (
-    <div className="mycontainer flex flex-col-reverse lg:flex-row justify-between w-full">
-      <section className="hero-section w-full h-full">
+    <div className="mycontainer flex flex-col-reverse lg:flex-row justify-between text-white bg-slate-900 w-full">
+      <section className="hero-section w-full h-full bg-slate-900">
         <div className="relative w-full">
-          <div className="overlay absolute w-full h-full bg-black opacity-80"></div>
+          <div className="overlay absolute w-full h-full bg-slate-800 opacity-50 p-6"></div>
 
           <div className="image-section w-full hidden lg:block h-full">
             <Image
@@ -87,7 +87,7 @@ export default function LoanSection() {
               width={1000}
               height={1000}
               alt="Successful loan application merry moment"
-              className="w-full h-full"
+              className="w-full h-full rounded-xl p-6"
             />
           </div>
         </div>

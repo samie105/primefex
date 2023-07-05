@@ -1,3 +1,9 @@
 .holder {
   transition: 1s;
-}/*# sourceMappingURL=styles.css.map */
+} /*# sourceMappingURL=styles.css.map */
+input,
+select,
+option {
+  color: rgba(0, 0, 0, 0.89);
+  font-weight: bold;
+}
