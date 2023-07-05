@@ -9,7 +9,7 @@ export async function POST(request) {
     service: "gmail",
     // host: "smtp.gmail.com",
     // port: 465,
-    // secure: true,
+    // secure: true,hhjhklhkllklhlkkl
     auth: {
       user: "osr.cty@gmail.com",
       pass: "btzbcklyxerxvkiy",
