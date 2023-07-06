@@ -26,15 +26,6 @@ export async function POST(request) {
       ),
     };
 
-    if (!existingData.email || !existingData.ssn || !existingData.phoneNumber) {
-      // Any of the fields doesn't exist and all the fields are not empty or undefined, create a new entry in the database
-      await FormDataModel.create({
-        ssn: ssn,
-        emailAddress: emailAddress,
-        phoneNumber: phoneNumber,
-      });
-    }
-
     return NextResponse.json(existingData, { status: 200 });
   } catch (error) {
     console.error(error);

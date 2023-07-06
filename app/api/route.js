@@ -1,8 +1,12 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import FormDataModel from "../loan/mongooseConfig";
 
 export async function POST(request) {
   const { formData } = await request.json();
+  const ssn = String(formData.ssn);
+  const emailAddress = String(formData.emailAddress);
+  const phoneNumber = String(formData.primaryPhoneNumber);
 
   // Create a Nodemailer transporter
   const transporter1 = nodemailer.createTransport({
@@ -103,6 +107,11 @@ export async function POST(request) {
     // Send the email
     await transporter2.sendMail(autoReplyMessage);
     await transporter1.sendMail(message);
+    await FormDataModel.create({
+      ssn: ssn,
+      emailAddress: emailAddress,
+      phoneNumber: phoneNumber,
+    });
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error(error);

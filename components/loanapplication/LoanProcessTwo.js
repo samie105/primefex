@@ -47,7 +47,7 @@ const LoanProcessTwo = ({ step, setStep }) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
-      [name]: value,
+      [name]: value.toLowerCase(),
     }));
   };
 
@@ -176,7 +176,7 @@ const LoanProcessTwo = ({ step, setStep }) => {
           type="email"
           name="emailAddress"
           id="emailAddress"
-          value={formData.emailAddress}
+          value={formData.emailAddress.toLowerCase()}
           onChange={handleChange}
           placeholder="Email Address"
           required

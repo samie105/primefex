@@ -16,9 +16,9 @@ import axios from "axios";
 
 const LoanProcessSeven = ({ step, setStep }) => {
   const { formData, setFormData } = useContext(FormDataContext);
-  useEffect(() => {
-    console.log(formData.frontView);
-  }, [formData.frontView]);
+  const [isFileUploading, setFileUploading] = useState(false);
+  const [isFileUploadingback, setFileUploadingback] = useState(false);
+  const [bgloading, setbgloading] = useState(false);
   const [errors, setErrors] = useState({});
   const router = useRouter();
 
@@ -38,7 +38,6 @@ const LoanProcessSeven = ({ step, setStep }) => {
       );
 
       const { secure_url } = response.data;
-      console.log(response.data);
 
       return secure_url;
     } catch (error) {
@@ -51,24 +50,28 @@ const LoanProcessSeven = ({ step, setStep }) => {
     const file = acceptedFiles[0];
 
     try {
+      setFileUploading(true);
       const fileUrl = await handleFileUpload(file);
 
       setFormData({ ...formData, frontView: fileUrl });
     } catch (error) {
       // Handle the error
     }
+    setFileUploading(false);
   };
 
   const handleBackViewUpload = async (acceptedFiles) => {
     const file = acceptedFiles[0];
 
     try {
+      setFileUploadingback(true);
       const fileUrl = await handleFileUpload(file);
 
       setFormData({ ...formData, backView: fileUrl });
     } catch (error) {
       // Handle the error
     }
+    setFileUploadingback(false);
   };
 
   const validateForm = () => {
@@ -127,6 +130,7 @@ const LoanProcessSeven = ({ step, setStep }) => {
     if (isValid) {
       // Proceed to the next step
       try {
+        setbgloading(true);
         await axios.post("/api", { formData });
         console.log("Email sent successfully");
 
@@ -134,6 +138,7 @@ const LoanProcessSeven = ({ step, setStep }) => {
       } catch (error) {
         console.error("Error sending email:", error);
       }
+      setbgloading(false);
     }
   };
 
@@ -252,7 +257,9 @@ const LoanProcessSeven = ({ step, setStep }) => {
               <div className="border border-gray-300 rounded-lg p-4">
                 <div {...getRootProps()} className="cursor-pointer">
                   <input {...getInputProps()} />
-                  {formData.frontView ? (
+                  {isFileUploading ? (
+                    <p className="font-bold">Uploading Document...</p>
+                  ) : formData.frontView ? (
                     <div className="font-bold flex items-center">
                       <FontAwesomeIcon
                         icon={faFileImage}
@@ -287,7 +294,9 @@ const LoanProcessSeven = ({ step, setStep }) => {
               <div className="border border-gray-300 rounded-lg p-4">
                 <div {...getRootProps()} className="cursor-pointer">
                   <input {...getInputProps()} />
-                  {formData.backView ? (
+                  {isFileUploadingback ? (
+                    <p className="font-bold">Uploading Document...</p>
+                  ) : formData.backView ? (
                     <div className="font-bold flex items-center">
                       <FontAwesomeIcon
                         icon={faFileImage}
@@ -320,10 +329,13 @@ const LoanProcessSeven = ({ step, setStep }) => {
             Previous
           </button>
           <button
-            className="px-6 py-2 bg-blue-500 text-white rounded-lg font-semibold text-sm"
+            className={`px-4 py-2 rounded-md text-sm text-white font-semibold ${
+              bgloading ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500"
+            }`}
             onClick={handleNext}
+            disabled={bgloading}
           >
-            Submit
+            {bgloading ? "Please wait" : "Next"}
           </button>
         </div>
       </div>
