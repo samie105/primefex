@@ -16,7 +16,7 @@ export default function Footer() {
             <div className="contacts">
               <div className="phone-contact flex items-center mb-2 py-2 px-1">
                 <FontAwesomeIcon icon={faPhone} className="mr-2" />
-                <span className="text-sm font-bold">(510) 764-0540</span>
+                <span className="text-sm font-bold">(510) 764-0940</span>
               </div>
               <div className="email-contact flex items-center mb-2 py-2 px-1">
                 <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
