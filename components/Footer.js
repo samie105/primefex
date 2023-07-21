@@ -16,7 +16,7 @@ export default function Footer() {
             <div className="contacts">
               <div className="phone-contact flex items-center mb-2 py-2 px-1">
                 <FontAwesomeIcon icon={faPhone} className="mr-2" />
-                <span className="text-sm font-bold">(888) 662-6226</span>
+                <span className="text-sm font-bold">(510) 764-0540</span>
               </div>
               <div className="email-contact flex items-center mb-2 py-2 px-1">
                 <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
@@ -25,7 +25,7 @@ export default function Footer() {
               <div className="address-contact flex items-center mb-2 py-2 px-1">
                 <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />
                 <span className="text-sm font-bold">
-                  MyQuickLoan, PO Box 630, Atwaters, ND 46100
+                  MyQuickLoan, PO Box 630, Los Angeles, CA 90074-9399
                 </span>
               </div>
             </div>

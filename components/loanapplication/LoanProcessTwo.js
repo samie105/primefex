@@ -52,7 +52,6 @@ const LoanProcessTwo = ({ step, setStep }) => {
   };
 
   const handleNext = async () => {
-    // Validate the form fields
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length === 0) {
       setErrors({});
