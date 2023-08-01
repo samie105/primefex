@@ -218,7 +218,7 @@ export default function LoanSection() {
           <div className="last-laugh mt-8 text-center">
             <div className="button flex flex-col justify-center">
               <button
-                className="rounded-lg bg-slate-800 w-2/4 mx-auto text-white font-bold px-5 py-3 text-sm"
+                className="rounded-lg bg-red-800 w-3/4 mx-auto text-white font-bold px-5 py-3 text-sm"
                 onClick={handleLoanApplication}
               >
                 Apply for this Loan
@@ -228,14 +228,6 @@ export default function LoanSection() {
                   Please fill in all the required fields.
                 </p>
               )}
-            </div>
-            <div className="info flex justify-center">
-              <p className="font-bold py-4">Get it as Soon as Now</p>
-            </div>
-            <div className="info flex justify-center">
-              <p className="text-sm opacity-80 font bold underline">
-                Checking your rate won't affect your credit score
-              </p>
             </div>
           </div>
         </section>

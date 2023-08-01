@@ -27,13 +27,6 @@ export default function Home() {
   const AutoplaySlider = withAutoplay(AwesomeSlider);
   return (
     <>
-      <div className="bg-gray-200  ">
-        <div className=" flex justify-between items-center px-6 py-6 h-auto sm:px-20 md:px-32 lg:px-48">
-          <StepItem icon={faUser} text="Applys" />
-          <StepItem icon={faComment} text="Get a Feedback" />
-          <StepItem icon={faDollarSign} text="Get Money Today" />
-        </div>
-      </div>
       <div className="relative">
         {" "}
         <div className="absolute top-0 left-0 z-30 bg-slate-800 opacity-80 w-full h-full"></div>{" "}

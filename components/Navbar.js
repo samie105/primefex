@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "./customComponents/Navlink";
+import Image from "next/image";
 
 function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -21,13 +22,24 @@ function Navbar() {
 
   return (
     <header
-      className={`holder transition-all bg-white shadow-md overflow-hidden items-center text-slate-800 ${
+      className={`holder fixed w-full top-0 z-50 transition-all bg-white shadow-md overflow-hidden items-center text-black${
         isMobileMenuOpen ? "h-auto transition-all" : ""
       }`}
     >
       <div className="flex items-center px-3 py-6">
         <nav className="flex w-full justify-between items-center">
-          <div className="LogoSide font-extrabold ml-5">Primefexloans</div>
+          <div className="LogoSide font-extrabold ml-5 flexx">
+            <div>
+              <Image
+                src="/assets/primefexfavicon.jpg"
+                className="w-5 h-5"
+                width={10}
+                height={10}
+                alt=""
+              />
+            </div>
+            <p>Primefexloans</p>{" "}
+          </div>
           <div
             className={`burger lg:hidden xl:hidden md:hidden cursor-pointer  pr-6 ${
               isMobileMenuOpen ? "w-10" : "w-auto"
@@ -57,7 +69,7 @@ function Navbar() {
               isMobileMenuOpen ? "hidden" : ""
             }`}
           >
-            <button className="rounded-full bg-slate-800 text-white py-3 px-6 font-semibold text-sm">
+            <button className="rounded-full bg-red-800 text-white py-3 px-6 font-semibold text-sm">
               Get Started
             </button>
           </div>
