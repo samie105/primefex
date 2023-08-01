@@ -94,7 +94,7 @@ export default function AboutUs() {
               </div>
             </div>
             <div className="flex flex-col md:flex-row justify-center items-center">
-              <div className="w-full md:w-1/2 p-4 md:p-6">
+              <div className="w-full md:w-1/2 p-4 md:p-6 jj">
                 <h3 className="text-xl font-bold mb-4">
                   Exceptional Customer Support
                 </h3>
