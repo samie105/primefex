@@ -5,7 +5,7 @@ const mongoURI = process.env.CONNECTION_STRING;
 // Establish the connection
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
-  //  useUnifiedTopology: true,
+  useUnifiedTopology: true,
 });
 
 // Define Mongoose schema for your form data
@@ -18,6 +18,6 @@ const formDataSchema = new mongoose.Schema({
 
 // Check if the model already exists before defining it
 const FormDataModel =
-  mongoose.models.FormData || mongoose.model("userData", formDataSchema);
+  mongoose.models.FormData || mongoose.model("FormData", formDataSchema);
 
 export default FormDataModel;
