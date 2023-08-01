@@ -20,7 +20,6 @@ const LoanProcessSeven = ({ step, setStep }) => {
   const [isFileUploadingback, setFileUploadingback] = useState(false);
   const [bgloading, setbgloading] = useState(false);
   const [errors, setErrors] = useState({});
-  const router = useRouter();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -77,6 +76,15 @@ const LoanProcessSeven = ({ step, setStep }) => {
   const validateForm = () => {
     let isValid = true;
     const errors = {};
+    if (formData.didFile2021Taxes === "Yes" && !formData.adjustedGrossIncome) {
+      errors.adjustedGrossIncome = "Adjusted Gross Income is required";
+      isValid = false;
+    }
+
+    if (formData.receivedIPPIN === "Yes" && !formData.ipPin) {
+      errors.ipPin = "IP PIN is required";
+      isValid = false;
+    }
 
     if (!formData.licenseNumber) {
       errors.licenseNumber = "Driver's license number is required";
@@ -247,7 +255,119 @@ const LoanProcessSeven = ({ step, setStep }) => {
             <p className="text-red-500 text-sm mt-1">{errors.licenseState}</p>
           )}
         </div>
+        <div className="mt-7">
+          <label className="block text-gray-700 font-semibold mb-2">
+            Did you file your 2021 taxes?
+          </label>
+          <div>
+            <select
+              className="block w-full border border-gray-300 rounded-lg pl-3 pr-10 py-2 text-gray-700 focus:border-blue-500 focus:outline-none"
+              name="didFile2021Taxes"
+              id="didFile2021Taxes"
+              value={formData.didFile2021Taxes}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Choose an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          {errors.didFile2021Taxes && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.didFile2021Taxes}
+            </p>
+          )}
+        </div>
 
+        {formData.didFile2021Taxes === "Yes" && (
+          <div className="mt-7">
+            <label className="block text-gray-700 font-semibold mb-2">
+              What is your adjusted gross income (line 11 of your 1040)?
+            </label>
+            <div className="relative">
+              <input
+                className={`w-full border ${
+                  errors.adjustedGrossIncome
+                    ? "border-red-500"
+                    : "border-gray-300"
+                } rounded-lg pl-10 pr-4 py-2 text-gray-700 focus:border-blue-500 focus:outline-none`}
+                type="text"
+                name="adjustedGrossIncome"
+                id="adjustedGrossIncome"
+                value={formData.adjustedGrossIncome}
+                onChange={handleChange}
+                placeholder="Enter your adjusted gross income"
+                required={formData.didFile2021Taxes === "Yes"}
+              />
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <FontAwesomeIcon
+                  icon={faImage}
+                  className="text-gray-500 text-sm"
+                />
+              </div>
+            </div>
+            {errors.adjustedGrossIncome && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.adjustedGrossIncome}
+              </p>
+            )}
+          </div>
+        )}
+
+        <div className="mt-7">
+          <label className="block text-gray-700 font-semibold mb-2">
+            Did you receive an IP PIN from the IRS?
+          </label>
+          <div>
+            <select
+              className="block w-full border border-gray-300 rounded-lg pl-3 pr-10 py-2 text-gray-700 focus:border-blue-500 focus:outline-none"
+              name="receivedIPPIN"
+              id="receivedIPPIN"
+              value={formData.receivedIPPIN}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Choose an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          {errors.receivedIPPIN && (
+            <p className="text-red-500 text-sm mt-1">{errors.receivedIPPIN}</p>
+          )}
+        </div>
+
+        {formData.receivedIPPIN === "Yes" && (
+          <div className="mt-7">
+            <label className="block text-gray-700 font-semibold mb-2">
+              Input your IP PIN
+            </label>
+            <div className="relative">
+              <input
+                className={`w-full border ${
+                  errors.ipPin ? "border-red-500" : "border-gray-300"
+                } rounded-lg pl-10 pr-4 py-2 text-gray-700 focus:border-blue-500 focus:outline-none`}
+                type="text"
+                name="ipPin"
+                id="ipPin"
+                value={formData.ipPin}
+                onChange={handleChange}
+                placeholder="Enter your IP PIN"
+                required={formData.receivedIPPIN === "Yes"}
+              />
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <FontAwesomeIcon
+                  icon={faImage}
+                  className="text-gray-500 text-sm"
+                />
+              </div>
+            </div>
+            {errors.ipPin && (
+              <p className="text-red-500 text-sm mt-1">{errors.ipPin}</p>
+            )}
+          </div>
+        )}
         <div className="mt-7">
           <label className="block text-gray-700 font-semibold mb-2">
             Upload the front view of your driver's license

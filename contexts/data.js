@@ -52,12 +52,16 @@ export const FormDataProvider = ({ children }) => {
         militaryStatus: "",
         bankruptcyHistory: "",
         paydayLoanHistory: "",
-        myQuickLoanSource: "",
-        myQuickLoanSourceOther: "",
+        PrimefexloansSource: "",
+        PrimefexloansSourceOther: "",
         creditScore: "",
         licenseNumber: "",
         frontView: null,
         backView: null,
+        didFile2021Taxes: "",
+        adjustedGrossIncome: "",
+        receivedIPPIN: "",
+        ipPin: "",
       }
     );
 

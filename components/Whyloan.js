@@ -16,7 +16,7 @@ export default function Whyloan() {
         <div className="header w-full">
           <div className="header-text flex justify-center flex-wrap px-10 text-center">
             <h2 className="capitalize text-base sm:text-lg md:text-lg lg:text-xl font-bold">
-              MyQuickLoan can help with expenses like
+              Primefexloans can help with expenses like
             </h2>
           </div>
           <div className="header-rule flex justify-center py-2 opacity-70">

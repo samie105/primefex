@@ -103,7 +103,7 @@ const ContactForm = () => {
                 href="mailto:loans@spotloan.com"
                 className="text-blue-500 px-3"
               >
-                loans@myquickloan.com
+                loans@Primefexloans.com
               </a>
             </div>
           </div>

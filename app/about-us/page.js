@@ -30,7 +30,7 @@ export default function AboutUs() {
         <section>
           <div className="container mx-auto px-6 lg:px-24 py-16">
             <h2 className="text-3xl font-bold text-center mt-8 mb-12">
-              MyQuickloan - Your Trusted Financial Partner
+              Primefexloans - Your Trusted Financial Partner
             </h2>
             <div className="flex flex-col md:flex-row justify-center items-center">
               <div className="w-full md:w-1/2 p-4 md:p-6">
@@ -54,7 +54,7 @@ export default function AboutUs() {
                 </h3>
                 <p className="text-gray-600">
                   We understand that time is of the essence when it comes to
-                  financial emergencies. With MyQuickloan, you can say goodbye
+                  financial emergencies. With Primefexloans, you can say goodbye
                   to lengthy paperwork and time-consuming bank visits. Our
                   streamlined application process allows you to apply for a loan
                   online in just a few simple steps. You can complete the entire
@@ -82,14 +82,14 @@ export default function AboutUs() {
               <div className="w-full md:w-1/2 p-4 md:p-6">
                 <h3 className="text-xl font-bold mb-4">Security and Privacy</h3>
                 <p className="text-gray-600">
-                  At MyQuickloan, we prioritize the security and privacy of our
-                  customers. We employ industry-standard security measures to
-                  safeguard your personal and financial information. Our website
-                  and application process are encrypted to ensure that your data
-                  remains confidential and protected. We are committed to
-                  maintaining the highest standards of data privacy and adhere
-                  to strict protocols to ensure that your information is handled
-                  securely.
+                  At Primefexloans, we prioritize the security and privacy of
+                  our customers. We employ industry-standard security measures
+                  to safeguard your personal and financial information. Our
+                  website and application process are encrypted to ensure that
+                  your data remains confidential and protected. We are committed
+                  to maintaining the highest standards of data privacy and
+                  adhere to strict protocols to ensure that your information is
+                  handled securely.
                 </p>
               </div>
             </div>
@@ -111,16 +111,16 @@ export default function AboutUs() {
               </div>
               <div className="w-full md:w-1/2 p-4 md:p-6">
                 <h3 className="text-xl font-bold mb-4">
-                  Join MyQuickloan Today
+                  Join Primefexloans Today
                 </h3>
                 <p className="text-gray-600">
                   Whether you need financial assistance for personal or business
-                  purposes, MyQuickloan is your reliable partner. We are
+                  purposes, Primefexloans is your reliable partner. We are
                   committed to helping you navigate your financial challenges
                   with ease and convenience. Join thousands of satisfied
                   borrowers who have experienced the benefits of our efficient
                   and trustworthy loan services. Apply for a loan with
-                  MyQuickloan today and discover a world of financial
+                  Primefexloans today and discover a world of financial
                   possibilities.
                 </p>
               </div>

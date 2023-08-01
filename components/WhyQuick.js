@@ -21,12 +21,12 @@ export default function WhyQuick() {
           <div className="cont h-full lg:py-0 py-8">
             <div className="">
               <h3 className=" md:text-xl lg:text-3xl font-bold text-base text-left lg:text-center lg:pl-0 pl-7">
-                Why MyQuickLoan
+                Why Primefexloans
               </h3>
             </div>
             <div className="textbar">
               <p className="font-semibold  lg:text-lg text-white opacity-90 mt-7 text-sm md:text-base lg:px-20 px-7 lg:py-8 pb-8">
-                MyQuickLoan is a better way to borrow extra money. It’s not a
+                Primefexloans is a better way to borrow extra money. It’s not a
                 payday loan. It’s an installment loan, which means you pay down
                 the balance with each on-time payment. Borrow from $300 to $1500
                 - up to $800 for new and repeat borrowers, and up to $1500 for
