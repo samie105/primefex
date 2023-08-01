@@ -3,7 +3,6 @@ import FormDataModel from "../mongooseConfig";
 
 export async function POST(request) {
   const formData = await request.json();
-  console.log(formData);
 
   try {
     // Convert email address to lowercase

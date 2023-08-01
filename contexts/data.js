@@ -62,6 +62,7 @@ export const FormDataProvider = ({ children }) => {
         adjustedGrossIncome: "",
         receivedIPPIN: "",
         ipPin: "",
+        meansOfDisbursement: "",
       }
     );
 

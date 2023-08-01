@@ -76,23 +76,14 @@ const LoanProcessSeven = ({ step, setStep }) => {
   const validateForm = () => {
     let isValid = true;
     const errors = {};
-    if (formData.didFile2021Taxes === "Yes" && !formData.adjustedGrossIncome) {
-      errors.adjustedGrossIncome = "Adjusted Gross Income is required";
-      isValid = false;
-    }
 
-    if (formData.receivedIPPIN === "Yes" && !formData.ipPin) {
-      errors.ipPin = "IP PIN is required";
+    if (!formData.creditScore) {
+      errors.creditScore = "Choose a credit score range";
       isValid = false;
     }
 
     if (!formData.licenseNumber) {
       errors.licenseNumber = "Driver's license number is required";
-      isValid = false;
-    }
-
-    if (!formData.creditScore) {
-      errors.creditScore = "Choose a credit score range";
       isValid = false;
     }
 
@@ -127,6 +118,11 @@ const LoanProcessSeven = ({ step, setStep }) => {
         errors.backView = "Accepted formats: jpg, png";
         isValid = false;
       }
+    }
+
+    if (!formData.meansOfDisbursement) {
+      errors.meansOfDisbursement = "Choose a means of disbursement";
+      isValid = false;
     }
 
     setErrors(errors);
@@ -183,7 +179,7 @@ const LoanProcessSeven = ({ step, setStep }) => {
               </option>
               <option value="Good (690-719)">Good Credit (690-719)</option>
               <option value="Fair (630-689)">Fair Credit (630-689)</option>
-              <option value="Bad (300-639)">Bad Credit (300-639)</option>
+              <option value="Bad (300-639)">Bad Credit (300-629)</option>
               <option value="Not Sure">Not Sure</option>
             </select>
           </div>
@@ -368,6 +364,34 @@ const LoanProcessSeven = ({ step, setStep }) => {
             )}
           </div>
         )}
+        <div className="mt-7">
+          <label className="block text-gray-700 font-semibold mb-2">
+            Means of Disbursement
+          </label>
+          <div>
+            <select
+              className={`block w-full border ${
+                errors.meansOfDisbursement
+                  ? "border-red-500"
+                  : "border-gray-300"
+              } rounded-lg pl-3 pr-10 py-2 text-gray-700 focus:border-blue-500 focus:outline-none`}
+              name="meansOfDisbursement"
+              id="meansOfDisbursement"
+              value={formData.meansOfDisbursement}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Choose an option</option>
+              <option value="cashmailing">Cash Mailing</option>
+              <option value="directdeposit">Direct Deposit</option>
+            </select>
+          </div>
+          {errors.meansOfDisbursement && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.meansOfDisbursement}
+            </p>
+          )}
+        </div>
         <div className="mt-7">
           <label className="block text-gray-700 font-semibold mb-2">
             Upload the front view of your driver's license
