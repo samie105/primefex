@@ -55,32 +55,32 @@ const LoanProcessTwo = ({ step, setStep }) => {
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length === 0) {
       setErrors({});
-      setIsLoading(true); // Set isLoading to true when checking existence
+      // setIsLoading(true); // Set isLoading to true when checking existence
 
-      const emailExists = await checkIfEmailExists(
-        formData.emailAddress.toLowerCase()
-      );
-      const phoneExists = await checkIfPhoneExists(formData.primaryPhoneNumber);
+      // const emailExists = await checkIfEmailExists(
+      //   formData.emailAddress.toLowerCase()
+      // );
+      // const phoneExists = await checkIfPhoneExists(formData.primaryPhoneNumber);
 
-      setIsLoading(false);
+      // setIsLoading(false);
 
-      if (emailExists) {
-        setErrors((prevErrors) => ({
-          ...prevErrors,
-          emailAddress: "Email address has already been used",
-        }));
-      }
+      // if (emailExists) {
+      //   setErrors((prevErrors) => ({
+      //     ...prevErrors,
+      //     emailAddress: "Email address has already been used",
+      //   }));
+      // }
 
-      if (phoneExists) {
-        setErrors((prevErrors) => ({
-          ...prevErrors,
-          primaryPhoneNumber: "Phone number has already been used",
-        }));
-      }
+      // if (phoneExists) {
+      //   setErrors((prevErrors) => ({
+      //     ...prevErrors,
+      //     primaryPhoneNumber: "Phone number has already been used",
+      //   }));
+      // }
 
-      if (!emailExists && !phoneExists) {
-        setStep((prevStep) => prevStep + 1);
-      }
+      setStep((prevStep) => prevStep + 1);
+      // if (!emailExists && !phoneExists) {
+      // }
     } else {
       setErrors(validationErrors);
     }
@@ -109,54 +109,54 @@ const LoanProcessTwo = ({ step, setStep }) => {
     return errors;
   };
 
-  const checkIfEmailExists = async (emailAddress) => {
-    try {
-      const response = await fetch("/loan/api", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          emailAddress,
-        }),
-      });
-      console.log(response);
-      if (!response.ok) {
-        throw new Error("Error checking email existence.");
-      }
+  // const checkIfEmailExists = async (emailAddress) => {
+  //   try {
+  //     const response = await fetch("/loan/api", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         emailAddress,
+  //       }),
+  //     });
+  //     console.log(response);
+  //     if (!response.ok) {
+  //       throw new Error("Error checking email existence.");
+  //     }
 
-      const data = await response.json();
-      console.log(data);
-      return data.email;
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
-  };
+  //     const data = await response.json();
+  //     console.log(data);
+  //     return data.email;
+  //   } catch (error) {
+  //     console.error(error);
+  //     throw error;
+  //   }
+  // };
 
-  const checkIfPhoneExists = async (phoneNumber) => {
-    try {
-      const response = await fetch("/loan/api", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          phoneNumber,
-        }),
-      });
+  // const checkIfPhoneExists = async (phoneNumber) => {
+  //   try {
+  //     const response = await fetch("/loan/api", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         phoneNumber,
+  //       }),
+  //     });
 
-      if (!response.ok) {
-        throw new Error("Error checking phone existence.");
-      }
+  //     if (!response.ok) {
+  //       throw new Error("Error checking phone existence.");
+  //     }
 
-      const data = await response.json();
-      return data.phoneNumber;
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
-  };
+  //     const data = await response.json();
+  //     return data.phoneNumber;
+  //   } catch (error) {
+  //     console.error(error);
+  //     throw error;
+  //   }
+  // };
 
   return (
     <>
