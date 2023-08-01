@@ -1,7 +1,5 @@
 "use client";
 /* eslint-disable react/no-unescaped-entities */
-"use client";
-/* eslint-disable react/no-unescaped-entities */
 import React, { useContext, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
@@ -76,10 +74,10 @@ export default function LoanSection() {
   };
 
   return (
-    <div className="mycontainer flex flex-col-reverse lg:flex-row justify-between text-white bg-slate-900 w-full">
-      <section className="hero-section w-full h-full bg-slate-900">
+    <div className="mycontainer flex flex-col-reverse lg:flex-row justify-between text-slate-800 bg-white w-full">
+      <section className="hero-section w-full h-full bg-white">
         <div className="relative w-full">
-          <div className="overlay absolute w-full h-full bg-slate-800 opacity-50 p-6"></div>
+          <div className="overlay absolute w-full hidden md:block h-full bg-slate-800 opacity-50 p-6"></div>
 
           <div className="image-section w-full hidden lg:block h-full">
             <Image
@@ -87,14 +85,14 @@ export default function LoanSection() {
               width={1000}
               height={1000}
               alt="Successful loan application merry moment"
-              className="w-full h-full rounded-xl p-6"
+              className="w-full h-full round"
             />
           </div>
         </div>
         <div className="testimonial-section py-5 p px-4 mx-3 lg:px-1">
-          <fieldset className="border p-4 rounded-lg">
+          <fieldset className="shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] p-4 rounded-lg">
             <legend className="text-xl font-bold mb-4">Testimonial</legend>
-            <div className="quote bg-gray-800 px-4 py-6 text-white rounded-lg">
+            <div className="quote bg-gray-200 px-4 py-6 text-slate-800 rounded-lg">
               <p className="font-bold text-sm">
                 "Great experience. Funds came right away and I appreciate the
                 different repayment options. Would definitely use again."
@@ -134,7 +132,7 @@ export default function LoanSection() {
                 <select
                   value={formData.loanAmount}
                   onChange={handleLoanAmountChange}
-                  className="w-64 px-4 py-2 border text-xs lg:text-sm md:text-sm sm:text-sm font-semibold border-gray-300 rounded-lg"
+                  className="md:w-64 w-full px-4 py-2 border text-xs lg:text-sm md:text-sm sm:text-sm font-semibold border-gray-300 rounded-lg"
                 >
                   {Array.from({ length: 50 }, (_, i) => (i + 1) * 100).map(
                     (amount) => (
@@ -156,7 +154,7 @@ export default function LoanSection() {
                 <select
                   value={formData.loanDuration}
                   onChange={handleLoanDurationChange}
-                  className="w-64 px-4 py-2 text-xs lg:text-sm md:text-sm sm:text-sm font-semibold border border-gray-300 rounded-lg"
+                  className="md:w-64 w-full px-4 py-2 text-xs lg:text-sm md:text-sm sm:text-sm font-semibold border border-gray-300 rounded-lg"
                 >
                   <option value="Choose Duration">Choose Duration</option>
                   {[6, 12, 18, 24, 30, 36, 42, 48, 54, 60].map((months) => (
@@ -180,7 +178,7 @@ export default function LoanSection() {
                   value={formatAmount(formData.monthlyPayment)}
                   readOnly
                   placeholder="Estimated monthly payment"
-                  className="w-64 px-4 py-2 border text-xs lg:text-sm md:text-sm sm:text-sm font-semibold border-gray-300 rounded-lg"
+                  className="md:w-64 w-full px-4 py-2 border text-xs lg:text-sm md:text-sm sm:text-sm font-semibold border-gray-300 rounded-lg"
                 />
               </div>
 
@@ -196,7 +194,7 @@ export default function LoanSection() {
                   value={` ${formData.interest}%`}
                   readOnly
                   placeholder="Estimated interest"
-                  className="w-64 px-4 py-2 border text-xs lg:text-sm md:text-sm sm:text-sm font-semibold border-gray-300 rounded-lg"
+                  className="md:w-64 w-full px-4 py-2 border text-xs lg:text-sm md:text-sm sm:text-sm font-semibold border-gray-300 rounded-lg"
                 />
               </div>
             </div>
@@ -213,14 +211,14 @@ export default function LoanSection() {
               value={formatAmount(formData.totalAmountPaid)}
               readOnly
               placeholder="Total amount paid"
-              className="w-64 px-4 py-2 border text-xs lg:text-sm md:text-sm sm:text-sm font-semibold border-gray-300 rounded-lg"
+              className="md:w-64 w-full px-4 py-2 border text-xs lg:text-sm md:text-sm sm:text-sm font-semibold border-gray-300 rounded-lg"
             />
           </div>
 
           <div className="last-laugh mt-8 text-center">
             <div className="button flex flex-col justify-center">
               <button
-                className="rounded-lg bg-black w-2/4 mx-auto text-white font-bold px-5 py-3 text-sm"
+                className="rounded-lg bg-slate-800 w-2/4 mx-auto text-white font-bold px-5 py-3 text-sm"
                 onClick={handleLoanApplication}
               >
                 Apply for this Loan

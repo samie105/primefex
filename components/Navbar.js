@@ -21,15 +21,15 @@ function Navbar() {
 
   return (
     <header
-      className={`holder transition-all bg-white overflow-hidden items-center text-slate-800 ${
-        isMobileMenuOpen ? "h-auto transition-all" : "transition"
+      className={`holder transition-all bg-white shadow-md overflow-hidden items-center text-slate-800 ${
+        isMobileMenuOpen ? "h-auto transition-all" : ""
       }`}
     >
-      <div className="flex items-center px-3 py-3">
+      <div className="flex items-center px-3 py-6">
         <nav className="flex w-full justify-between items-center">
           <div className="LogoSide font-extrabold ml-5">Primefexloans</div>
           <div
-            className={`burger lg:hidden xl:hidden md:hidden cursor-pointer py-2 pr-6 ${
+            className={`burger lg:hidden xl:hidden md:hidden cursor-pointer  pr-6 ${
               isMobileMenuOpen ? "w-10" : "w-auto"
             }`}
             onClick={toggleMobileMenu}

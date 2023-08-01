@@ -54,7 +54,7 @@ const PersonalInformationForm = () => {
               <div className="flex justify-between items-center rounded-full px-4 w-full left-3 top-5">
                 <div className="progress-bar-holder mr-5 w-full h-2 b rounded-full bg-gray-200">
                   <div
-                    className={`progress-bar-width h-full rounded-full bg-blue-500 transition-all`}
+                    className={`progress-bar-width h-full rounded-full bg-slate-900 transition-all`}
                     style={{ width: `${progressPercentage}%` }}
                   ></div>
                 </div>
