@@ -10,7 +10,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import FormDataContext from "@/contexts/data";
 import Dropzone from "react-dropzone";
-import { useRouter } from "next/navigation";
 
 import axios from "axios";
 
