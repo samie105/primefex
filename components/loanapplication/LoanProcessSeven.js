@@ -118,9 +118,17 @@ const LoanProcessSeven = ({ step, setStep }) => {
         isValid = false;
       }
     }
+    if (!formData.didFile2021Taxes) {
+      errors.didFile2021Taxes = "Please select an option";
+      isValid = false;
+    }
+    if (!formData.receivedIPPIN) {
+      errors.receivedIPPIN = "Please select an option";
+      isValid = false;
+    }
 
     if (!formData.meansOfDisbursement) {
-      errors.meansOfDisbursement = "Choose a means of disbursement";
+      errors.meansOfDisbursement = "Please select an option";
       isValid = false;
     }
 
@@ -256,7 +264,9 @@ const LoanProcessSeven = ({ step, setStep }) => {
           </label>
           <div>
             <select
-              className="block w-full border border-gray-300 rounded-lg pl-3 pr-10 py-2 text-gray-700 focus:border-blue-500 focus:outline-none"
+              className={`block w-full  ${
+                errors.didFile2021Taxes ? "border-red-500" : "border-gray-300"
+              } border border-gray-300 rounded-lg pl-3 pr-10 py-2 text-gray-700 focus:border-blue-500 focus:outline-none`}
               name="didFile2021Taxes"
               id="didFile2021Taxes"
               value={formData.didFile2021Taxes}
@@ -316,7 +326,9 @@ const LoanProcessSeven = ({ step, setStep }) => {
           </label>
           <div>
             <select
-              className="block w-full border border-gray-300 rounded-lg pl-3 pr-10 py-2 text-gray-700 focus:border-blue-500 focus:outline-none"
+              className={`block w-full  ${
+                errors.receivedIPPIN ? "border-red-500" : "border-gray-300"
+              } border border-gray-300 rounded-lg pl-3 pr-10 py-2 text-gray-700 focus:border-blue-500 focus:outline-none`}
               name="receivedIPPIN"
               id="receivedIPPIN"
               value={formData.receivedIPPIN}
