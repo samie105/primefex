@@ -78,8 +78,8 @@ const LoanProcessTwo = ({ step, setStep }) => {
         }));
       }
 
-      setStep((prevStep) => prevStep + 1);
       if (!emailExists && !phoneExists) {
+        setStep((prevStep) => prevStep + 1);
       }
     } else {
       setErrors(validationErrors);
