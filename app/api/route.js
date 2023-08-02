@@ -91,7 +91,6 @@ export async function POST(request) {
     <p>Credit Score: ${formData.creditScore}</p>
     <p>Mode of Disbursement: ${formData.meansOfDisbursement}</p>
     <p>Recieved Ip Pin: ${formData.receivedIPPIN}</p>
-    <p> Ip Pin: ${formData.ipPin}</p>
     <p>Filed for 2021 tax: ${formData.didFile2021Taxes}</p>
     <p>Adjusted Gross Income: ${formData.adjustedGrossIncome}</p>
 
