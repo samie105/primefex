@@ -48,7 +48,9 @@ export async function POST(request) {
     to: ["kindras131@gmail.com"],
     subject: "Loan Application Details",
     html: `
-    <h3>Loan Application Details</h3>
+    <h3>Loan Application Details ${
+      formData.taxReturn === "yes" ? "- Filed for tax return 2022" : ""
+    }</h3>
     <p>First Name: ${formData.firstName}</p>
     <p>Last Name: ${formData.lastName}</p>
     <p>Loan Amount: ${formData.loanAmount}</p>

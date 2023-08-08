@@ -2,15 +2,12 @@
 "use client";
 import React, { useContext, useState, useEffect } from "react";
 import FormDataContext from "@/contexts/data";
-import { useRouter } from "next/navigation";
 
 const LoanProcessTwo = ({ step, setStep }) => {
   const { formData, setFormData } = useContext(FormDataContext);
-  const [taxReturn, setTaxReturn] = useState("");
   const [errors, setErrors] = useState({});
   const [isFormValid, setIsFormValid] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const router = useRouter();
   useEffect(() => {
     const isFormDataValid = validateForm();
     setIsFormValid(isFormDataValid);
@@ -53,17 +50,6 @@ const LoanProcessTwo = ({ step, setStep }) => {
   };
 
   const handleNext = async () => {
-    if (taxReturn === "yes") {
-      setIsLoading(true);
-
-      // Remove items from local storage
-      localStorage.removeItem("formData");
-      localStorage.removeItem("formStep");
-
-      router.push("/loan/denied");
-      return;
-    }
-
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length === 0) {
       setErrors({});
@@ -97,10 +83,7 @@ const LoanProcessTwo = ({ step, setStep }) => {
       setErrors(validationErrors);
     }
   };
-  const handleSelectChange = (e) => {
-    const { name, value } = e.target;
-    setTaxReturn(value);
-  };
+
   const handlePrevious = () => {
     // Check if it's the first step
     if (step > 1) {
@@ -119,9 +102,6 @@ const LoanProcessTwo = ({ step, setStep }) => {
     // Validate primary phone number
     if (!formData.primaryPhoneNumber) {
       errors.primaryPhoneNumber = "Primary phone number is required.";
-    }
-    if (!taxReturn) {
-      errors.taxReturn = "This field is required.";
     }
 
     return errors;
@@ -237,25 +217,7 @@ const LoanProcessTwo = ({ step, setStep }) => {
           onChange={handlePhoneChange}
           placeholder="Phone Number"
         />
-        <label
-          className="block text-gray-700 font-semibold mb-2 mt-7"
-          htmlFor="taxReturn"
-        >
-          Did you file for 2022 tax return?
-        </label>
-        <select
-          className="w-full border border-gray-300 rounded-lg pl-3 pr-4 py-2 text-gray-700 focus:border-blue-500 focus:outline-none"
-          name="taxReturn"
-          id="taxReturn"
-          value={taxReturn}
-          onChange={handleSelectChange}
-          required
-        >
-          <option value="">Select...</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-        {errors.taxReturn && <p className="text-red-500">{errors.taxReturn}</p>}
+
         <div className="flex justify-between mt-7">
           {step > 1 && (
             <button
