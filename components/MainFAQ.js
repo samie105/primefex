@@ -50,7 +50,7 @@ const MainFAQ = () => {
     {
       question: "What happens if I change my mind?",
       answer:
-        "You have three days from the date you receive your funds to return the funds at no cost to you. Simply contact us at (888) 681-6811 or help@Primefexloans.com to begin the process. Be sure to contact us during business hours before your three-day rescission period comes to an end.",
+        "You have three days from the date you receive your funds to return the funds at no cost to you. Simply contact us at help@Primefexloans.com to begin the process. Be sure to contact us during business hours before your three-day rescission period comes to an end.",
     },
     {
       question: "What is the interest on a Primefexloans?",
@@ -86,7 +86,7 @@ const MainFAQ = () => {
         "‍Automatic Debit (ACH): Automatic debits from your bank account are the easiest way to make sure your payments are made on time.\n\n" +
         "97% of Primefexloans customers choose to make their payments using ACH because it is a convenient way to make loan payments, and it can also save you money over the life of your loan by helping you avoid missed payments.\n\n" +
         "Customers that choose not to use ACH for their payments are almost five times more likely to default on their programs. Those missed payments can result in additional finance charges, which make the loan more expensive over time.\n\n" +
-        "Call us at (888) 681-6811 to set up ACH payments.\n\n" +
+        "Call us to set up ACH payments.\n\n" +
         "‍Debit Cards: Contact us to make a payment via debit card over the phone.\n\n" +
         "‍Checks and Money Orders: To make a payment by check or money order,\n" +
         "mail it to us at:\n" +
@@ -115,7 +115,7 @@ const MainFAQ = () => {
       question: "What happens if I make a late payment?",
       answer:
         "If you make a late payment, you may be subject to additional interest charges and fees. It's important to make your payments on time to avoid these additional costs.\n\n" +
-        "If you think you will be late on a payment, please contact us as soon as possible at (888) 681-6811. We are here to help.",
+        "If you think you will be late on a payment, please contact us as soon as possible. We are here to help.",
     },
   ];
 

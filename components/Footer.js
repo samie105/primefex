@@ -14,10 +14,6 @@ export default function Footer() {
           <div className="contactNaward w-full flex flex-col">
             <div className="header text-2xl font-bold py-6">Primefexloans</div>
             <div className="contacts">
-              <div className="phone-contact flex items-center mb-2 py-2 px-1">
-                <FontAwesomeIcon icon={faPhone} className="mr-2" />
-                <span className="text-sm font-bold">(510) 764-0940</span>
-              </div>
               <div className="email-contact flex items-center mb-2 py-2 px-1">
                 <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
                 <span className="text-sm font-bold">
