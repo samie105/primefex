@@ -78,12 +78,7 @@ const ContactForm = () => {
         <div className="md:w-1/2 md:pl-8 mt-8 md:mt-0 flex-row-reverse">
           <div className="bg-gray-100 rounded-md p-6">
             <h2 className="text-xl font-semibold mb-4">Contact Information</h2>
-            <div className="flex items-center mb-2">
-              <FontAwesomeIcon icon={faPhone} className="mr-2 text-blue-500" />
-              <a href="tel:8886816811" className="text-blue-500 px-3">
-                (888) 681-6811
-              </a>
-            </div>
+
             <div className="flex items-center mb-2 py-4">
               <FontAwesomeIcon icon={faClock} className="mr-2 text-blue-500" />
               <p className="px-3">
